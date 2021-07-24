@@ -1,0 +1,106 @@
+{
+  "name": "vue3-template",
+  "version": "1.0.0",
+  "description": "vue3 template",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack serve --progress --colors --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "dev": "env-cmd -f ./envs/.env.dev yarn webpack",
+    "lint": "eslint --fix --ext .ts --ext .tsx src/",
+    "build-prod": "env-cmd -f ./envs/.env.prod npm run build",
+    "build-test": "env-cmd -f ./envs/.env.test npm run build",
+    "build-staging": "env-cmd -f ./envs/.env.staging npm run build",
+    "build": "npm run lint && webpack --config build/webpack.prod.conf.js"
+  },
+  "keywords": [
+    "vue3"
+  ],
+  "author": "lin-yf",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "core-js": "^3.10.0",
+    "dayjs": "^1.10.4",
+    "element-plus": "^1.0.2-beta.36",
+    "lodash": "^4.17.21",
+    "qs": "^6.10.1",
+    "vue": "^3.0.11",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@types/webpack": "^4.0.0",
+    "@types/webpack-dev-server": "^3.11.0",
+    "@types/webpack-env": "^1.16.0",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@vue/compiler-sfc": "^3.0.11",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "autoprefixer": "9.6.0",
+    "babel-loader": "^8.2.2",
+    "cache-loader": "4.1.0",
+    "chalk": "2.4.2",
+    "commitizen": "4.0.3",
+    "connect-history-api-fallback": "^1.6.0",
+    "copy-webpack-plugin": "5.0.0",
+    "css-loader": "^5.2.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "file-loader": "^6.2.0",
+    "friendly-errors-webpack-plugin": "1.7.0",
+    "html-webpack-plugin": "4.3.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "mini-css-extract-plugin": "^1.4.0",
+    "opn": "5.4.0",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "ora": "^5.4.0",
+    "portfinder": "^1.0.28",
+    "postcss-import": "12.0.1",
+    "postcss-loader": "3.0.0",
+    "postcss-safe-parser": "4.0.1",
+    "postcss-url": "8.0.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^10.0.2",
+    "script-ext-html-webpack-plugin": "2.1.2",
+    "standard-version": "^9.1.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "1.2.2",
+    "thread-loader": "^3.0.1",
+    "ts-loader": "^8.1.0",
+    "typescript": "~4.1.5",
+    "url-loader": "1.1.2",
+    "vue-loader": "16.0.0-beta.4",
+    "vue-style-loader": "^4.1.3",
+    "webpack": "4.44.1",
+    "webpack-bundle-analyzer": "3.0.4",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "4.2.1"
+  },
+  "browserslist": [
+    "Chrome >= 58",
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{.ts,.vue}": [
+      "eslint --fix"
+    ]
+  }
+}
